@@ -1,27 +1,31 @@
 package com.apphub.algorithm.datastructures;
 
-public class LinkedList<T> {
+public class DoublyLinkedList<T> {
 
-    Node head = null, tail = null;
+    DoublyNode head = null, tail = null;
 
     public void addFirst(T data) {
-        Node temp = new Node(data);
+        DoublyNode temp = new DoublyNode(data);
         if (head == null) {
             head = temp;
             tail = temp;
         } else {
+            temp.setPrev(null);
             temp.setNext(head);
+            head.setPrev(temp);
             head = temp;
         }
     }
 
     public void addAtIndex(T data, int index) {
-        Node temp = new Node(data);
-        Node currentNode = head;
-        Node prevNode = head;
+        DoublyNode temp = new DoublyNode(data);
+        DoublyNode currentNode = head;
+        DoublyNode prevNode = head;
         int count = 0;
         if (index == 0) {
             temp.setNext(head);
+            temp.setPrev(null);
+            head.setPrev(temp);
             head = temp;
         }
         if (head == null) {
@@ -30,8 +34,10 @@ public class LinkedList<T> {
         } else {
             while (index != 0 && count <= index) {
                 if (count == index) {
-                    prevNode.setNext(temp);
                     temp.setNext(currentNode);
+                    temp.setPrev(prevNode);
+                    prevNode.setNext(temp);
+                    currentNode.setPrev(temp);
                     break;
                 } else {
                     prevNode = currentNode;
@@ -43,39 +49,45 @@ public class LinkedList<T> {
     }
 
     public void addLast(T data) {
-        Node temp = new Node(data);
+        DoublyNode temp = new DoublyNode(data);
         if (head == null) {
             head = temp;
             tail = temp;
         } else {
+            temp.setPrev(tail);
+            temp.setNext(null);
             tail.setNext(temp);
-            tail = tail.getNext();
+            tail = temp;
         }
     }
 
     public void removeFirst() {
         head = head.getNext();
+        head.setPrev(null);
     }
 
     public void removeLast() {
-        Node temp = head;
+        DoublyNode temp = head;
         while (temp.getNext() != tail) {
             temp = temp.getNext();
         }
         temp.setNext(null);
         tail = temp;
+        tail.setNext(null);
     }
 
     public void removeAtIndex(int index) {
         int count = 0;
-        Node currentNode = head;
-        Node prevNode = head;
+        DoublyNode currentNode = head;
+        DoublyNode prevNode = head;
         if (index == 0) {
             head = head.getNext();
+            head.setPrev(null);
         }
         while (index != 0 && count <= index) {
             if (count == index) {
                 prevNode.setNext(currentNode.getNext());
+                currentNode.setPrev(null);
                 currentNode.setNext(null);
                 break;
             } else {
@@ -88,7 +100,7 @@ public class LinkedList<T> {
     }
 
     public int searchAndReturnIndex(T data) {
-        Node temp = head;
+        DoublyNode temp = head;
         int count = 0;
         while (temp != null) {
 
@@ -103,7 +115,7 @@ public class LinkedList<T> {
     }
 
     public void print() {
-        Node temp = head;
+        DoublyNode temp = head;
         while (temp != null) {
             System.out.println(temp.getData());
             temp = temp.getNext();
