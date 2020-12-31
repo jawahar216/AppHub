@@ -1,4 +1,4 @@
-package com.apphub.algorithm.datastructures;
+package com.apphub.algorithm.datastructures.list;
 
 public class DoublyLinkedList<T> {
 

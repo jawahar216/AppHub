@@ -14,13 +14,13 @@ public class TowersOfHanoi {
     static void solveTowersOfHanoi(int n, char fromPeg, char toPeg, char auxPeg) {
         //If there is only one disk, move from source to destination and return
         if (n == 1) {
-            System.out.println("Moving disk from peg " + fromPeg + " to " + toPeg);
+            System.out.println("Moving disk 1 from " + fromPeg + " to " + toPeg);
             return;
         }
         //Move the top n-1 disks from A to B using C as auxiliary
         solveTowersOfHanoi(n - 1, fromPeg, auxPeg, toPeg);
         //Move remaining disks from A to C
-        System.out.println("Move disk " + n + " from " + fromPeg + " to " + toPeg);
+        System.out.println("Moving disk " + n + " from " + fromPeg + " to " + toPeg);
         //Move n-1 disks from B to C using A as auxiliary
         solveTowersOfHanoi(n - 1, auxPeg, toPeg, fromPeg);
     }
