@@ -29,8 +29,6 @@ public class BinaryGenerator {
                 A[n - 1] = i;
                 printBinaryArray(n - 1, A);
             }
-            //A[n - 1] = 1;
-            //printBinaryArray(n - 1, A);
         }
     }
 }

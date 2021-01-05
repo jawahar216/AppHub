@@ -67,7 +67,7 @@ public class SkipList<T extends Comparable<T>> {
     }
 
     /*
-     * Finds @param data in the list
+     * Finds data in the list
      */
     public T get(T data) {
         SkipListNode node = getPreviousNode(data);
@@ -78,7 +78,7 @@ public class SkipList<T extends Comparable<T>> {
     }
 
     /*
-     * Removes @param data from the list
+     * Removes data from the list
      */
 
     public boolean remove(T data) {
@@ -100,7 +100,7 @@ public class SkipList<T extends Comparable<T>> {
     }
 
     /*
-     * Returns the node that is before @param data in the list.
+     * Returns the node that is before data in the list.
      */
     private SkipListNode getPreviousNode(T data) {
         SkipListNode previous = findPreviousNodeOnLevel(data, first);
@@ -120,7 +120,7 @@ public class SkipList<T extends Comparable<T>> {
     }
 
     /*
-     * Returns the node before @param data at the same height/level as @param current
+     * Returns the node before data at the same height/level as current
      */
     private SkipListNode findPreviousNodeOnLevel(T data, SkipListNode current) {
 

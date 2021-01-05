@@ -14,7 +14,7 @@ package com.apphub.algorithm.datastructures.list;
 
 public class LoopInALinkedList
 {
-	public static int findLengthOfTheLoop(ListNode head){
+	public static int findLengthOfLoop(ListNode head){
         ListNode fastPtr = head;
         ListNode slowPtr = head;
         boolean loopExists = false;
@@ -36,7 +36,7 @@ public class LoopInALinkedList
         return length;
     }
 
-    public static ListNode findBeginOfLoop(ListNode head){
+    public static ListNode findStartOfLoop(ListNode head){
         ListNode fastPtr = head;
         ListNode slowPtr = head;
         boolean loopExists = false;
@@ -59,7 +59,7 @@ public class LoopInALinkedList
             return null;
     }
 
-    public static boolean findIfLoopExistsUsingFloyds(ListNode head){
+    public static boolean findLoopExistsUsingFloyds(ListNode head){
         ListNode fastPtr = head;
         ListNode slowPtr = head;
         while (fastPtr != null && fastPtr.getNext() != null) {
@@ -72,7 +72,7 @@ public class LoopInALinkedList
         return false;
     }
 
-    public static boolean findIfLoopExistsUsingBrents(ListNode head){
+    public static boolean findLoopExistsUsingBrents(ListNode head){
         ListNode movingPtr = head;
         ListNode stationaryPtr = head;
         int stepsTaken = 0;

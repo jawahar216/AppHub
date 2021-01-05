@@ -79,6 +79,9 @@ class ArraysEqualProblem {
         check(expected_2, output_2);
         // Add your own test cases here
 
+        boolean output_3 = areTheyEqual(array_a_1,array_b_1);
+        check(true,output_3);
+
     }
 
     public static void main(String[] args) {
