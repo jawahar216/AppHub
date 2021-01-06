@@ -10,13 +10,13 @@ public class JosephusProblem {
     System.out.println("Enter the position to be removed ");
     Scanner scanner = new Scanner(System.in);
     int k = scanner.nextInt();
-    ListNode listNode = new ListNode(5);
-    listNode.setNext(new ListNode(4));
+    ListNode listNode = new ListNode(1);
+    listNode.setNext(new ListNode(2));
     listNode.getNext().setNext(new ListNode(3));
-    listNode.getNext().getNext().setNext(new ListNode(21));
-    listNode.getNext().getNext().getNext().setNext(new ListNode(34));
-    listNode.getNext().getNext().getNext().getNext().setNext(new ListNode(42));
-    listNode.getNext().getNext().getNext().getNext().getNext().setNext(new ListNode(59));
+    listNode.getNext().getNext().setNext(new ListNode(4));
+    listNode.getNext().getNext().getNext().setNext(new ListNode(5));
+    listNode.getNext().getNext().getNext().getNext().setNext(new ListNode(6));
+    listNode.getNext().getNext().getNext().getNext().getNext().setNext(new ListNode(7));
     listNode.getNext().getNext().getNext().getNext().getNext().getNext().setNext(listNode);
     printList(listNode);
     System.out.println(getJosephusPosition(listNode, k));
@@ -28,7 +28,7 @@ public class JosephusProblem {
     ListNode head = node;
     ListNode prev = node;
     for (int i = 1; i <= k; i++) {
-      while (listSize >= 1 && i == k && node.next != head) {
+      while (listSize >= 1 && i == k) {
         data = node.data;
         prev.next = node.next;
         i = 0;
